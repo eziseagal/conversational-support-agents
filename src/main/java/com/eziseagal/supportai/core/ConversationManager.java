@@ -53,6 +53,9 @@ public class ConversationManager {
             store.ingestDocument(Paths.get("docs/sso_setup_guide.md"));
         } catch (Exception e) {
             System.err.println("[Warning] Failed to ingest some documents. RAG might be incomplete: " + e.getMessage());
+            if (e.getCause() != null) {
+                System.err.println("Cause: " + e.getCause().getMessage());
+            }
         }
     }
 
@@ -103,7 +106,7 @@ public class ConversationManager {
             }
 
             // 4. Record and display the response
-            history.add(new Message("assistant", agentResponse));
+            history.add(new Message("model", agentResponse));
             System.out.println("\nAgent: " + agentResponse);
         }
         scanner.close();

@@ -40,9 +40,10 @@ public class LLMClient {
     public double[] createEmbedding(String text) {
         try {
             ObjectNode payload = mapper.createObjectNode();
+            payload.put("model", "models/gemini-embedding-001");
             payload.putObject("content").putArray("parts").addObject().put("text", text);
 
-            String url = BASE_URL + "text-embedding-004:embedContent?key=" + apiKey;
+            String url = BASE_URL + "gemini-embedding-001:embedContent?key=" + apiKey;
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(url))
                     .header("Content-Type", "application/json")

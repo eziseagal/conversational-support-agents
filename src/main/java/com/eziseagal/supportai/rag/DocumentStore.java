@@ -33,11 +33,21 @@ public class DocumentStore {
             String content = Files.readString(filePath);
             List<String> textChunks = TextChunker.chunkText(content);
             
+            int successCount = 0;
             for (String text : textChunks) {
-                double[] embedding = llmClient.createEmbedding(text);
-                chunksDatabase.add(new DocumentChunk(text, embedding));
+                try {
+                    double[] embedding = llmClient.createEmbedding(text);
+                    chunksDatabase.add(new DocumentChunk(text, embedding));
+                    successCount++;
+                    Thread.sleep(1000); // Avoid rate limits
+                } catch (Exception e) {
+                    System.err.println("Failed to embed chunk in " + filePath.getFileName() + ": " + e.getMessage());
+                    if (e.getCause() != null) {
+                        System.err.println("Cause: " + e.getCause().getMessage());
+                    }
+                }
             }
-            System.out.println("[System] Ingested document: " + filePath.getFileName() + " (" + textChunks.size() + " chunks)");
+            System.out.println("[System] Ingested document: " + filePath.getFileName() + " (" + successCount + "/" + textChunks.size() + " chunks)");
         } catch (IOException e) {
             System.err.println("Failed to read document: " + filePath);
         }
