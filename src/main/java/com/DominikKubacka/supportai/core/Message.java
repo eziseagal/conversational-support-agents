@@ -1,4 +1,4 @@
-package com.eziseagal.supportai.core;
+package com.DominikKubacka.supportai.core;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -9,7 +9,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  * Represents a single message in the Gemini conversation history.
  * Roles: "user", "model", or "function".
  * 
- * @author eziseagal
+ * @author Dominik Kubacka
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Message {

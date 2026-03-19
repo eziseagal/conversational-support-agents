@@ -1,4 +1,4 @@
-package com.eziseagal.supportai.core;
+package com.DominikKubacka.supportai.core;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * A lightweight HTTP client for interacting with the Google Gemini API.
  * 
- * @author eziseagal
+ * @author Dominik Kubacka
  */
 public class LLMClient {
     private static final String BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models/";
@@ -35,7 +35,7 @@ public class LLMClient {
     }
 
     /**
-     * Generates a vector embedding using text-embedding-004.
+     * Generates a vector embedding using text-embedding-001.
      */
     public double[] createEmbedding(String text) {
         try {
@@ -71,7 +71,7 @@ public class LLMClient {
     }
 
     /**
-     * Sends a chat completion request to Gemini (gemini-1.5-flash or gemini-1.5-pro).
+     * Sends a chat completion request to Gemini (gemini-2.5-flash or gemini-2.5-pro).
      */
     public JsonNode generateContent(List<Message> messages, String systemInstruction, String model, double temperature, ArrayNode tools) {
         try {

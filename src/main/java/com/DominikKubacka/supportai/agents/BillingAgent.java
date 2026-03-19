@@ -1,8 +1,8 @@
-package com.eziseagal.supportai.agents;
+package com.DominikKubacka.supportai.agents;
 
-import com.eziseagal.supportai.core.LLMClient;
-import com.eziseagal.supportai.core.Message;
-import com.eziseagal.supportai.tools.BillingService;
+import com.DominikKubacka.supportai.core.LLMClient;
+import com.DominikKubacka.supportai.core.Message;
+import com.DominikKubacka.supportai.tools.BillingService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * The Billing Specialist Agent (Tool Calling with Gemini).
  * 
- * @author eziseagal
+ * @author Dominik Kubacka
  */
 public class BillingAgent {
     private final LLMClient llmClient;

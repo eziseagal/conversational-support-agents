@@ -1,22 +1,22 @@
-package com.eziseagal.supportai.core;
-
-import com.eziseagal.supportai.agents.BillingAgent;
-import com.eziseagal.supportai.agents.RouterAgent;
-import com.eziseagal.supportai.agents.TechnicalAgent;
-import com.eziseagal.supportai.rag.DocumentStore;
-import com.eziseagal.supportai.tools.BillingService;
+package com.DominikKubacka.supportai.core;
 
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.DominikKubacka.supportai.agents.BillingAgent;
+import com.DominikKubacka.supportai.agents.RouterAgent;
+import com.DominikKubacka.supportai.agents.TechnicalAgent;
+import com.DominikKubacka.supportai.rag.DocumentStore;
+import com.DominikKubacka.supportai.tools.BillingService;
+
 /**
  * The central orchestrator of the Support AI system.
  * It manages the conversation state, initializes all agents,
  * and routes user messages based on intent.
  * 
- * @author eziseagal
+ * @author Dominik Kubacka
  */
 public class ConversationManager {
     private final List<Message> history;
@@ -64,7 +64,7 @@ public class ConversationManager {
      */
     public void start() {
         System.out.println("\n=========================================================");
-        System.out.println("   Support AI System Initialized (Author: eziseagal)      ");
+        System.out.println("   Support AI System Initialized (Author: Dominik Kubacka)      ");
         System.out.println("   Agents: Technical, Billing, Router                    ");
         System.out.println("   Type 'exit' or 'quit' to end the session.             ");
         System.out.println("=========================================================");

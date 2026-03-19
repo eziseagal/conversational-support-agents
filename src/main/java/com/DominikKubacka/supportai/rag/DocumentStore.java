@@ -1,6 +1,4 @@
-package com.eziseagal.supportai.rag;
-
-import com.eziseagal.supportai.core.LLMClient;
+package com.DominikKubacka.supportai.rag;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -10,11 +8,13 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.DominikKubacka.supportai.core.LLMClient;
+
 /**
  * An in-memory vector database that stores document chunks and performs 
  * manual cosine similarity search.
  * 
- * @author eziseagal
+ * @author Dominik Kubacka
  */
 public class DocumentStore {
     private final LLMClient llmClient;

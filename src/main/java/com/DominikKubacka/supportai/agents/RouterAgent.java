@@ -1,14 +1,14 @@
-package com.eziseagal.supportai.agents;
+package com.DominikKubacka.supportai.agents;
 
-import com.eziseagal.supportai.core.LLMClient;
-import com.eziseagal.supportai.core.Message;
+import com.DominikKubacka.supportai.core.LLMClient;
+import com.DominikKubacka.supportai.core.Message;
 import com.fasterxml.jackson.databind.JsonNode;
 import java.util.List;
 
 /**
  * Evaluates the conversation context and routes the user's request.
  * 
- * @author eziseagal
+ * @author Dominik Kubacka
  */
 public class RouterAgent {
     private final LLMClient llmClient;

@@ -1,9 +1,9 @@
-package com.eziseagal.supportai.tools;
+package com.DominikKubacka.supportai.tools;
 
 /**
  * Mock backend service for billing operations.
  * 
- * @author eziseagal
+ * @author Dominik Kubacka
  */
 public class BillingService {
 

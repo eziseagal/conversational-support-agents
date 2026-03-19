@@ -7,7 +7,7 @@ The following transcripts demonstrate the Support AI's ability to maintain conve
 *Demonstrates the RAG system answering a technical question, followed by a seamless switch to the Billing Agent using Tool Calling to check the user's plan*
 
 =========================================================
-   Support AI System Initialized (Author: eziseagal)
+   Support AI System Initialized (Author: Dominik Kubacka)
    Agents: Technical, Billing, Router
    Type 'exit' or 'quit' to end the session.
 =========================================================

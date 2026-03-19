@@ -1,4 +1,4 @@
-package com.eziseagal.supportai.rag;
+package com.DominikKubacka.supportai.rag;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Utility class to split large texts into smaller semantic chunks.
  * 
- * @author eziseagal
+ * @author Dominik Kubacka
  */
 public class TextChunker {
     

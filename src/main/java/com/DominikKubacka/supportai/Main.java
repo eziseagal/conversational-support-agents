@@ -1,11 +1,11 @@
-package com.eziseagal.supportai;
+package com.DominikKubacka.supportai;
 
-import com.eziseagal.supportai.core.ConversationManager;
+import com.DominikKubacka.supportai.core.ConversationManager;
 
 /**
  * Application Entry Point.
  * 
- * @author eziseagal
+ * @author Dominik Kubacka
  */
 public class Main {
     public static void main(String[] args) {
