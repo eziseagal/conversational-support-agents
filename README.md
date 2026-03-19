@@ -1,6 +1,6 @@
 # Conversational AI Support Agents (Java Implementation)
 
-**Author:** eziseagal  
+**Author:** Dominik Kubacka  
 **Stack:** Java 17, Maven, Jackson (JSON), Google Gemini API.
 
 ## Overview
@@ -11,7 +11,7 @@ This is a multi-agent conversational support system built from scratch in Java w
 - **Technical Specialist (RAG):**
     - Local documentation processing (Markdown).
     - Manual Text Chunking.
-    - Vector embeddings via `text-embedding-004` (Gemini).
+    - Vector embeddings via `text-embedding-001` (Gemini).
     - **Manual Cosine Similarity** implementation for semantic search.
 - **Billing Specialist (Tool Calling):**
     - Manual implementation of the Gemini tool-calling loop.
@@ -19,10 +19,10 @@ This is a multi-agent conversational support system built from scratch in Java w
 - **Context Preservation:** Full conversation history is maintained across agent switches.
 
 ## Project Structure
-- `src/main/java/com/eziseagal/supportai/core`: Core LLM client and conversation management.
-- `src/main/java/com/eziseagal/supportai/agents`: Specialist agents (Technical, Billing, Router).
-- `src/main/java/com/eziseagal/supportai/rag`: Manual RAG components.
-- `src/main/java/com/eziseagal/supportai/tools`: Backend service mocks.
+- `src/main/java/com/DominikKubacka/supportai/core`: Core LLM client and conversation management.
+- `src/main/java/com/DominikKubacka/supportai/agents`: Specialist agents (Technical, Billing, Router).
+- `src/main/java/com/Dominik Kubacka/supportai/rag`: Manual RAG components.
+- `src/main/java/com/DominikKubacka/supportai/tools`: Backend service mocks.
 - `docs/`: Technical documentation used by the Technical Agent.
 
 ## Setup and Running
