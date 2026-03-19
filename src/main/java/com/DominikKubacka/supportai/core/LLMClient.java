@@ -97,7 +97,7 @@ public class LLMClient {
                 contentNode.put("role", msg.getRole());
                 ArrayNode parts = contentNode.putArray("parts");
 
-                // Logika mapowania Message -> Gemini Parts (musi być obsłużona w klasie Message)
+                // Message -> Gemini Parts mapping logic (must be handled in the Message class)
                 msg.fillParts(parts);
             }
 
