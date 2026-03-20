@@ -15,11 +15,13 @@ public class RouterAgent {
     private final String model = "gemini-2.5-flash";
 
     private static final String ROUTER_SYSTEM_PROMPT = 
-        "You are a routing supervisor. Classify the user's latest message into EXACTLY ONE category:\n" +
+        "You are a routing supervisor overseeing a conversation. Your job is to classify the user's LATEST message.\n" +
+        "Use the conversation history only for context (e.g., resolving pronouns like 'it' or 'that').\n\n" +
+        "Classify the LATEST message into EXACTLY ONE of these categories:\n" +
         "1. TECHNICAL: Troubleshooting, API, setup, integration.\n" +
         "2. BILLING: Refunds, pricing, plans, charges, history.\n" +
-        "3. OUT_OF_SCOPE: Anything else.\n" +
-        "Respond with ONLY the category name (TECHNICAL, BILLING, or OUT_OF_SCOPE).";
+        "3. OUT_OF_SCOPE: Anything else or general greetings not related to tech/billing.\n\n" +
+        "Respond with ONLY the category name (TECHNICAL, BILLING, or OUT_OF_SCOPE) and nothing else.";
 
     public RouterAgent(LLMClient llmClient) {
         this.llmClient = llmClient;

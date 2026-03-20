@@ -13,7 +13,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
@@ -55,22 +54,5 @@ public class BillingAgentTest {
         
         // ...and whether it actually used BillingService during its while loop!
         verify(mockBillingService, times(1)).checkPlan("CUST-123");
-    }
-    
-    @Test
-    void testCheckPlan() {
-        BillingService service = new BillingService();
-        String response = service.checkPlan("CUST-999");
-        assertTrue(response.contains("CUST-999"));
-        assertTrue(response.contains("Enterprise Plan"));
-    }
-
-    @Test
-    void testOpenRefundCase() {
-        BillingService service = new BillingService();
-        String response = service.openRefundCase("CUST-123", "TX-456", "Accidental charge");
-        assertTrue(response.contains("TX-456"));
-        assertTrue(response.contains("Accidental charge"));
-        assertTrue(response.contains("CASE-"));
     }
 }

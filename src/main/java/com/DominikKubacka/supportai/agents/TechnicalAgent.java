@@ -27,9 +27,10 @@ public class TechnicalAgent {
         String contextString = String.join("\n\n---\n\n", relevantChunks);
 
         String systemPrompt = 
-            "You are a Technical Support Specialist. Answer using ONLY the CONTEXT below. " +
-            "If the answer is not in the CONTEXT, reply exactly with: " +
-            "\"I'm sorry, but I don't have that information in my documentation.\"\n\n" +
+            "You are a Technical Support Specialist. Your goal is to help users with technical issues.\n" +
+            "Answer the user's question using ONLY the information provided in the CONTEXT below.\n" +
+            "IMPORTANT: You must not guess or hallucinate. If the answer is not present in the CONTEXT, " +
+            "you must clearly state that the information is not available in your documentation and politely ask the user to clarify their request.\n\n" +
             "CONTEXT:\n" + contextString;
 
         JsonNode response = llmClient.generateContent(history, systemPrompt, model, 0.2, null);

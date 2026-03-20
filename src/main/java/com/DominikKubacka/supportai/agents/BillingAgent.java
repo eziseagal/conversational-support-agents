@@ -30,7 +30,13 @@ public class BillingAgent {
 
     public String handle(List<Message> history) {
         ArrayNode tools = buildGeminiTools();
-        String systemInstruction = "You are a Billing Support Specialist. You MUST use the provided tools to look up information. Assume customerId is 'CUST-123' if not provided.";
+        String systemInstruction = 
+            "You are a Billing Support Specialist. Your job is to help customers with payments, plans, and refunds.\n" +
+            "You have access to backend tools. You MUST use these tools to answer questions.\n" +
+            "Rules:\n" +
+            "1. Assume the logged-in customerId is 'CUST-123' unless stated otherwise.\n" +
+            "2. If a tool requires specific parameters (like transactionId or a reason for a refund) and the user hasn't provided them, DO NOT guess. Politely ask the user to provide the missing information.\n" +
+            "3. When confirming a refund, briefly explain that refunds typically process within 5-7 business days.";
         
         List<Message> agentMessages = new ArrayList<>(history);
         int maxLoops = 5;

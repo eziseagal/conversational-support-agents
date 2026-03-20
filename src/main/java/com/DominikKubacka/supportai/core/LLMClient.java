@@ -71,7 +71,7 @@ public class LLMClient {
     }
 
     /**
-     * Sends a chat completion request to Gemini (gemini-2.5-flash or gemini-2.5-pro).
+     * Sends a chat completion request to Gemini (gemini-2.5-flash or gemini-3.1-flash-lite).
      */
     public JsonNode generateContent(List<Message> messages, String systemInstruction, String model, double temperature, ArrayNode tools) {
         try {

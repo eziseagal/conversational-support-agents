@@ -1,16 +1,25 @@
 package com.DominikKubacka.supportai.tools;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BillingServiceTest {
 
     @Test
-    void testCheckPlan() {
+    void testCheckPlanWithAuthorizedCustomer() {
         BillingService service = new BillingService();
-        String response = service.checkPlan("CUST-999");
-        assertTrue(response.contains("CUST-999"));
+        String response = service.checkPlan("CUST-123");
+        assertTrue(response.contains("CUST-123"));
         assertTrue(response.contains("Enterprise Plan"));
+    }
+
+    @Test
+    void testCheckPlanWithUnauthorizedCustomer() {
+        BillingService service = new BillingService();
+        // We test whether the system actually throws an error for a foreign ID, which is a critical security check
+        assertThrows(SecurityException.class, () -> {
+            service.checkPlan("CUST-999");
+        });
     }
 
     @Test
