@@ -1,5 +1,8 @@
 package com.DominikKubacka.supportai.core;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,16 +49,20 @@ public class ConversationManager {
      * Loads the local documentation files into the in-memory vector store.
      */
     private void ingestDocumentation(DocumentStore store) {
-        try {
-            System.out.println("[System] Initializing knowledge base...");
-            store.ingestDocument(Paths.get("docs/troubleshooting_hubspot.md"));
-            store.ingestDocument(Paths.get("docs/api_rate_limits.md"));
-            store.ingestDocument(Paths.get("docs/sso_setup_guide.md"));
-        } catch (Exception e) {
-            System.err.println("[Warning] Failed to ingest some documents. RAG might be incomplete: " + e.getMessage());
-            if (e.getCause() != null) {
-                System.err.println("Cause: " + e.getCause().getMessage());
-            }
+        Path docsPath = Paths.get("docs");
+        System.out.println("[System] Initializing knowledge base from: " + docsPath.toAbsolutePath());
+
+        if (!Files.exists(docsPath)) {
+            System.err.println("[Error] 'docs' directory not found at " + docsPath.toAbsolutePath());
+            return;
+        }
+
+        try (var stream = Files.walk(docsPath)) {
+            stream.filter(Files::isRegularFile)
+                .filter(path -> path.toString().endsWith(".md"))
+                .forEach(store::ingestDocument);
+        } catch (IOException e) {
+            System.err.println("[Warning] RAG initialization error: " + e.getMessage());
         }
     }
 
